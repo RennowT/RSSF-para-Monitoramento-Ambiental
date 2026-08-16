@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{paper}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\usepackage[printonlyused]{acronym}
+\usepackage{microtype}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\usepackage{multirow}
+\usepackage{longtable}
+
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5cm}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\usepackage{siunitx}
+
+\usepackage{import}
+
+\title{RSSF para Monitoramento Ambiental}
+\author{Matheus Renó Torres}
+\date{}
+
+\begin{document}
+\maketitle
+
+% \begin{abstract}
+
+% \end{abstract}
+
+%\textbf{Palavras-chave:} 
+
+\input{acronimos}
+
+\input{sections/01_INTRODUCAO}
+\input{sections/02_ARQUITETURA_DO_SISTEMA}
+\input{sections/03_NOS_TOPOLOGIA}
+\input{sections/04_SENSORES_CALIBRACAO}
+\input{sections/05_TECNOLOGIAS_COMUNICACAO}
+\input{sections/06_IMPLANTACAO_OPERACAO}
+\input{sections/07_CONCLUSAO}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,34 @@
+\section{Implantação e Operação}
+
+Com base nos requisitos apresentados nas seções anteriores, a implantação e a operação da rede podem ser organizadas nas seguintes etapas:
+
+\begin{enumerate}
+    \item \textbf{Definir a pergunta ambiental}: determinar o fenômeno observado, a finalidade dos dados e os requisitos de unidade, faixa de medição, resolução e incerteza \cite{HART2006177,5597912}.
+
+    \item \textbf{Planejar a amostragem}: definir a posição e a profundidade dos sensores, o intervalo de amostragem e a duração da campanha. O plano amostral deve representar adequadamente o fenômeno, independentemente da disponibilidade de cobertura de rádio \cite{HART2006177,5597912}.
+
+    \item \textbf{Validar os sensores}: realizar calibração, co-localização com instrumentos de referência e ensaios de influência da temperatura, umidade, deriva e tempo de estabilização \cite{5597912,10.1145/3005719,atmos10090506,KANG2022151769}.
+
+    \item \textbf{Dimensionar a energia}: contabilizar o consumo associado à aquisição, ao processamento, à transmissão, à recepção e aos períodos de repouso. Duty cycle, agregação local e transmissão disparada por eventos podem reduzir o consumo de comunicação \cite{ANASTASI2009537,s23146332}.
+
+    \item \textbf{Ensaiar o enlace no local}: medir perda de pacotes, RSSI, SNR e margem de cobertura em diferentes posições e condições ambientais \cite{10.1145/1134680.1134685,8030482,s23146332}.
+
+    \item \textbf{Definir o esquema de dados}: registrar identificador e posição do nó, marca temporal, variável medida, valor, unidade, indicador de qualidade, tensão da bateria e versão da calibração aplicada \cite{YICK20082292,5597912,10.1145/1031495.1031521}.
+
+    \item \textbf{Executar uma implantação piloto}: operar um conjunto reduzido de nós durante um ciclo ambiental representativo, avaliando autonomia, confiabilidade, integridade dos dados e necessidades de manutenção antes da expansão da rede \cite{5597912,10.1145/1031495.1031521,10.1145/1134680.1134685}.
+
+    \item \textbf{Planejar a manutenção}: estabelecer procedimentos e periodicidade para limpeza, recalibração, substituição de baterias, diagnóstico remoto e controle das versões de firmware \cite{5597912,10.1145/1031495.1031521,10.1145/3005719}.
+\end{enumerate}
+
+Para ilustrar a aplicação desse procedimento, considera-se uma \ac{RSSF} de microclima composta por nós distribuídos equipados com sensores de temperatura, umidade relativa e pressão atmosférica \cite{10.1145/570738.570751}.
+Nesse exemplo, cada nó realiza amostragens em intervalos de um minuto, calcula estatísticas locais e transmite periodicamente os registros agregados \cite{5597912,ANASTASI2009537}.
+Variações superiores a um limiar predefinido ou medições fora da faixa ambiental esperada podem acionar a transmissão imediata de um pacote de evento \cite{5597912,ANASTASI2009537}.
+Em outro domínio, aplicações de monitoramento da qualidade da água podem incorporar sensores de pH, turbidez e condutividade elétrica. Nesse caso, a manutenção deve priorizar limpeza periódica, controle da bioincrustação e recalibração das sondas \cite{10.1145/3005719}.
+
+Independentemente do domínio monitorado, os principais modos de falha em RSSF ambientais incluem deriva dos sensores, condensação, corrosão, bioincrustação, instalação inadequada, esgotamento da fonte de energia, inconsistência das marcas temporais, interrupção dos enlaces e falhas silenciosas dos nós \cite{YICK20082292,5597912,10.1145/1031495.1031521,10.1145/3005719,atmos10090506,KANG2022151769}.
+Entre esses modos de falha, estudos de campo demonstram que conectores, encapsulamento, alimentação e manutenção são determinantes para a confiabilidade da implantação e devem ser avaliados em conjunto com o protocolo de rede \cite{5597912,10.1145/1031495.1031521,10.1145/1134680.1134685}.
+
+No tratamento dos registros, o esquema de dados de uma RSSF ambiental deve representar separadamente a ausência de pacotes, valores nulos válidos e medições classificadas como inválidas. Quando houver agregação local ou detecção de eventos, uma parcela dos dados brutos ou janelas de verificação deve ser preservada para permitir a auditoria dos valores derivados \cite{5597912,10.1145/1031495.1031521,ANASTASI2009537}.
+A proteção dos registros requer identificação dos dispositivos, autenticação, verificação criptográfica de integridade e, quando necessário, confidencialidade das comunicações entre os nós e o gateway \cite{YICK20082292,s23208440}.
+
+A taxa de entrega caracteriza o desempenho da comunicação. No nível do sistema, o sucesso de uma RSSF ambiental é avaliado pela produção de séries calibradas, temporalmente consistentes, espacialmente representativas e rastreáveis durante o período de monitoramento, com continuidade operacional e manutenção viável \cite{YICK20082292,HART2006177,5597912,10.1145/1031495.1031521,KANG2022151769}.

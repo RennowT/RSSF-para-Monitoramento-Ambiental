@@ -1,0 +1,90 @@
+\section{Sensores e Calibração}
+
+Os principais sensores estão resumidos na Tabela \ref{tab:sensores_ambientais}.
+Um nó pode integrar diferentes sensores, desde que cada transdutor seja instalado de acordo com a variável medida e com suas condições de exposição. Sensores de temperatura do ar requerem abrigo ventilado e proteção contra radiação solar direta; sondas de solo exigem contato estável com o substrato; e sensores de qualidade da água requerem imersão adequada e manutenção periódica para controle da bioincrustação \cite{5597912,10.1145/3005719,s23146332}.
+
+Quanto à qualidade metrológica, sensores de baixo custo permitem aumentar a densidade espacial do monitoramento. Sua equivalência a instrumentos de referência depende de calibração, co-localização e validação nas condições de operação \cite{atmos10090506,KANG2022151769}.
+Em particular, estudos sobre sensores de baixo custo para qualidade do ar identificam a temperatura, a umidade, a deriva temporal, as sensibilidades cruzadas e o modelo de calibração como fatores que influenciam a resposta dos dispositivos \cite{atmos10090506,KANG2022151769}.
+Com base nesses fatores, recomenda-se co-localizar uma parcela dos nós com um instrumento de referência, documentar o modelo e a versão da calibração aplicada e repetir a verificação durante a implantação para identificar alterações de desempenho \cite{atmos10090506,KANG2022151769}.
+
+\begin{table*}[!t]
+\centering
+\caption{Variáveis, princípios de medição e requisitos de implantação para o monitoramento ambiental.}
+\label{tab:sensores_ambientais}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+
+\begin{tabularx}{\textwidth}{
+    @{}
+    L{2.0cm}
+    L{3.6cm}
+    Y
+    Y
+    @{}
+}
+\toprule
+\textbf{Grupo} &
+\textbf{Variáveis monitoradas} &
+\textbf{Princípios de medição e sensores} &
+\textbf{Requisitos de implantação e manutenção} \\
+\midrule
+
+Água
+\cite{10.1145/3005719} &
+Temperatura, pH, turbidez, oxigênio dissolvido e condutividade elétrica &
+Termistor ou RTD; eletrodo de pH; turbidímetro óptico; sensor óptico ou eletroquímico de oxigênio dissolvido; célula de condutividade &
+Controle de bioincrustação; compensação de temperatura; limpeza periódica; verificação e recalibração dos sensores \\
+
+\addlinespace
+
+Eventos naturais
+\cite{10.1145/1134680.1134685} &
+Nível da água, vibração do solo, pressão acústica, fumaça e velocidade do vento &
+Transdutor de pressão ou sensor ultrassônico; acelerômetro ou geofone; microfone; detector óptico de fumaça; anemômetro &
+Definição e validação dos limiares; sincronização temporal; aquisição disparada por evento; armazenamento temporário local \\
+
+\addlinespace
+
+Microclima
+\cite{HART2006177,5597912,10.1145/570738.570751} &
+Temperatura do ar, umidade relativa e pressão atmosférica &
+Termistor, RTD ou sensor digital de temperatura; sensor capacitivo de umidade; barômetro MEMS &
+Abrigo meteorológico ventilado; altura e exposição padronizadas; proteção contra radiação solar direta e condensação \\
+
+\addlinespace
+
+Qualidade do ar
+\cite{atmos10090506,KANG2022151769} &
+\(\mathrm{PM}_{2{,}5}\), \(\mathrm{PM}_{10}\), \(\mathrm{CO}_{2}\), \(\mathrm{CO}\), \(\mathrm{NO}_{2}\), \(\mathrm{O}_{3}\) e compostos orgânicos voláteis &
+Contador óptico de partículas; sensor NDIR; células eletroquímicas; sensores de óxido metálico &
+Co-localização com instrumento de referência; calibração; compensação de temperatura e umidade; avaliação de deriva e sensibilidade cruzada \\
+
+\addlinespace
+
+Radiação solar e precipitação
+\cite{5597912} &
+Iluminância, irradiância solar e precipitação &
+Fotodiodo ou luxímetro; piranômetro; pluviômetro de báscula &
+Nivelamento; campo de visão desobstruído; controle de sombreamento; limpeza e inspeção periódicas \\
+
+\addlinespace
+
+Solo
+\cite{5597912,s23146332} &
+Teor volumétrico de água, temperatura e condutividade elétrica &
+Sensor capacitivo, FDR ou TDR; termistor ou RTD; eletrodos de condutividade &
+Contato adequado com o solo; calibração para o tipo de solo; avaliação do efeito da salinidade; distribuição espacial representativa dos pontos \\
+
+\bottomrule
+\end{tabularx}
+
+\vspace{3pt}
+\parbox{\textwidth}{\footnotesize
+RTD: detector resistivo de temperatura;
+MEMS: sistemas microeletromecânicos;
+NDIR: infravermelho não dispersivo;
+FDR: reflectometria no domínio da frequência;
+TDR: reflectometria no domínio do tempo.
+}
+\end{table*}

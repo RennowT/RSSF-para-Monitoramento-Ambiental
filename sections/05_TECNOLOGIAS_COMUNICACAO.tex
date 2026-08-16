@@ -1,0 +1,75 @@
+\section{Tecnologias de Comunicação}
+
+A seleção da tecnologia de comunicação deve considerar o tamanho das mensagens e a frequência de transmissão, pois esses parâmetros influenciam a ocupação do canal, o consumo energético e a capacidade da rede \cite{7815384,8030482}.
+Em aplicações ambientais com variáveis de evolução lenta, cada registro pode ser representado por poucos bytes, e os requisitos de latência frequentemente permitem intervalos de transmissão de segundos ou minutos, perfil compatível com rádios de baixo consumo \cite{7815384,s23146332}.
+Aplicações que envolvem imagens, áudio contínuo ou sinais de vibração amostrados em alta frequência produzem volumes de dados incompatíveis com o perfil de baixa taxa das LPWANs, exigindo processamento local, armazenamento temporário ou um enlace de maior capacidade \cite{5597912,10.1145/1134680.1134685,7815384}.
+As principais alternativas de comunicação são comparadas na Tabela \ref{tab:alternativas_comunicacao}.
+
+Para redes de baixa taxa, as LPWANs são projetadas para oferecer ampla cobertura e baixo consumo energético, operando com taxas de dados reduzidas \cite{7815384}.
+Entre essas alternativas, o LoRaWAN apresenta características compatíveis com redes de nós geograficamente dispersos e com baixo volume de tráfego \cite{s23208440}.
+Revisões recentes identificam o monitoramento ambiental como uma das principais áreas de aplicação do LoRaWAN \cite{s23208440}.
+Para esse protocolo, o dimensionamento da rede deve considerar a capacidade do canal, as colisões, as restrições de duty cycle e a disponibilidade limitada de downlink, especialmente com o aumento do número de nós \cite{8030482}.
+O planejamento da implantação deve incluir ensaios de cobertura e a elaboração de um orçamento energético considerando payload, frequência de transmissão, parâmetros do rádio e condições de propagação \cite{8030482,s23146332}.
+
+\begin{table*}[!t]
+\centering
+\caption{Comparação entre alternativas de comunicação para RSSF.}
+\label{tab:alternativas_comunicacao}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+
+\begin{tabularx}{\textwidth}{
+    @{}
+    L{2.0cm}
+    L{3.4cm}
+    L{3.1cm}
+    Y
+    Y
+    @{}
+}
+\toprule
+\textbf{Tecnologia} &
+\textbf{Topologia e infraestrutura} &
+\textbf{Perfil de comunicação} &
+\textbf{Vantagens} &
+\textbf{Limitações e uso indicado} \\
+\midrule
+
+IEEE 802.15.4 e 6LoWPAN
+\cite{YICK20082292} &
+Estrela ou comunicação multi-hop organizada em árvore ou malha; requer roteador de borda &
+Curto ou médio alcance; baixa taxa de dados &
+Baixo consumo energético; suporte a redes densas e encaminhamento por nós intermediários &
+O encaminhamento multi-hop aumenta o consumo e a dependência dos nós retransmissores; indicado para áreas locais com infraestrutura própria \\
+
+\addlinespace
+
+LoRaWAN
+\cite{7815384,8030482,s23208440} &
+Estrela de estrelas, com nós conectados a um ou mais gateways &
+Longo alcance; mensagens curtas e transmissões esparsas &
+Ampla cobertura com baixa densidade de gateways; baixo consumo em aplicações de tráfego reduzido &
+Baixa taxa de dados; restrições de duty cycle, capacidade e downlink; indicado para monitoramento distribuído de baixa frequência \\
+
+\addlinespace
+
+NB-IoT e LTE-M
+\cite{7815384} &
+Conexão direta à infraestrutura celular da operadora &
+Ampla cobertura onde existe serviço celular; comunicação gerenciada &
+Uso de espectro licenciado; infraestrutura, autenticação e operação administradas pela rede celular &
+Dependência da cobertura e da operadora; custos de assinatura; picos de corrente superiores aos de algumas soluções LPWAN não celulares \\
+
+\addlinespace
+
+Wi-Fi
+\cite{YICK20082292} &
+Topologia em estrela com ponto de acesso &
+Curto ou médio alcance; elevada taxa de dados &
+Integração direta com redes IP; ampla disponibilidade; adequado à transmissão de volumes maiores de dados &
+Consumo energético elevado para nós alimentados por bateria; indicado para estações com alimentação contínua ou recarga frequente \\
+
+\bottomrule
+\end{tabularx}
+\end{table*}
